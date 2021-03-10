@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+
+    <title>Express Dev Skill</title>
+</head>
+
+<body>
+    <h1>Skills as of <%= time %>
+    </h1>
+    <ul>
+        <% skills.forEach(function(t) { %>
+            <li>
+                <form action="/skills/<%= t.id %>?_method=DELETE" id="delete-form" method="POST">
+                    <button type="submit">x</button>
+                </form>
+                <a href="/skills/<%= t.id %>">
+                    <%= t.skill %>
+                </a>
+                -
+                <%= t.good ? 'Achieved' : 'Partially done' %>
+            </li>
+            <% }); %>
+    </ul>
+    <a href="/skills/new">Add Skill</a>
+</body>
+
+</html>
